@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30px"
             android:layout_marginRight="400px"
+            android:onClick="addToCart"
             android:text="加入购物车" />
 
         <Button

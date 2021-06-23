@@ -56,7 +56,9 @@
         <activity android:name="com.google.ar.sceneform.samples.ARFurniture.ResetPwdActivity" />
         <activity android:name="com.google.ar.sceneform.samples.ARFurniture.HomepageActivity" />
         <activity android:name="com.google.ar.sceneform.samples.ARFurniture.ResignActivity" />
+        <activity android:name=".ShoppingCartActivity" />
         <activity android:name="com.google.ar.sceneform.samples.ARFurniture.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

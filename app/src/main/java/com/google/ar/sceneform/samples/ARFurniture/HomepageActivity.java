@@ -28,7 +28,7 @@ public class HomepageActivity extends AppCompatActivity {
     MenuItem menuItem;
 
     NavigationView navigationView;
-
+    static ShoppingCartActivity shoppingPage = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class HomepageActivity extends AppCompatActivity {
         myAdapter adapter = new myAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
 
-
+        shoppingPage = new ShoppingCartActivity();
         //处理底部导航点击事件
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -65,7 +65,8 @@ public class HomepageActivity extends AppCompatActivity {
                         viewPager.setCurrentItem(0);
                         break;
                     case R.id.shopping:
-                        viewPager.setCurrentItem(1);
+                        Intent intent = new Intent(HomepageActivity.this, ShoppingCartActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.person:
                         viewPager.setCurrentItem(2);

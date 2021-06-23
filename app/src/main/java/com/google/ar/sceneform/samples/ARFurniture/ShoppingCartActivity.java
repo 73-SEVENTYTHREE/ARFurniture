@@ -16,7 +16,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,10 +70,10 @@ public class ShoppingCartActivity extends AppCompatActivity implements GoodsCall
         String shopName = info.getShopName();
         //遍历所有商店
         for (CarResponse.OrderDataBean mShop:mList) {
-            if(mShop.getShopName()==shopName){
+            if(mShop.getShopName().compareTo(shopName)==0){
                 List<CarResponse.OrderDataBean.CartlistBean> goodList = mShop.getCartlist();
                 for (CarResponse.OrderDataBean.CartlistBean good:goodList){
-                    if(good.getProductName()==proName){
+                    if(good.getProductName().compareTo(proName)==0){
                         return;
                     }
                 }
@@ -121,14 +120,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements GoodsCall
         tvShareGoods.setOnClickListener(this);
         tvCollectGoods.setOnClickListener(this);
         tvDeleteGoods.setOnClickListener(this);
-
-
-        if(mList.size()==0){
-            CarResponse carResponse = new Gson().fromJson(Constant.CAR_JSON, CarResponse.class);
-
-            mList.addAll(carResponse.getOrderData());
-        }
-
+        
         storeAdapter = new StoreAdapter(R.layout.item_store, mList, this);
         rvStore.setLayoutManager(new LinearLayoutManager(this));
         rvStore.setAdapter(storeAdapter);
