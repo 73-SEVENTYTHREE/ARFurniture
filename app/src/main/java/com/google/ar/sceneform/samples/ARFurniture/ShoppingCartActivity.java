@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements GoodsCall
 
     private RecyclerView rvStore;
     private StoreAdapter storeAdapter;
-    private List<CarResponse.OrderDataBean> mList = new ArrayList<>();
+    static private List<CarResponse.OrderDataBean> mList = new ArrayList<>();
     private TextView tvEdit;//编辑
     private ImageView ivCheckedAll;//全选
     private TextView tvTotal;//合计价格
@@ -35,17 +36,17 @@ public class ShoppingCartActivity extends AppCompatActivity implements GoodsCall
     private TextView tvCollectGoods;//收藏商品
     private TextView tvDeleteGoods;//删除商品
 
-    private boolean isEdit = false;//是否编辑
-    private boolean isAllChecked = false;//是否全选
+    static private boolean isEdit = false;//是否编辑
+    static private boolean isAllChecked = false;//是否全选
 
-    private List<Integer> shopIdList = new ArrayList<>();//店铺列表
+    static private List<Integer> shopIdList = new ArrayList<>();//店铺列表
 
-    private double totalPrice = 0.00;//商品总价
-    private int totalCount = 0;//商品总数量
+    static private double totalPrice = 0.00;//商品总价
+    static private int totalCount = 0;//商品总数量
 
     private AlertDialog dialog;//弹窗
 
-    private boolean isHaveGoods = false;//购物车是否有商品
+    static private boolean isHaveGoods = false;//购物车是否有商品
 
     private SmartRefreshLayout refresh;//刷新布局
     private LinearLayout layEmpty;//空布局
@@ -122,9 +123,11 @@ public class ShoppingCartActivity extends AppCompatActivity implements GoodsCall
         tvDeleteGoods.setOnClickListener(this);
 
 
-        CarResponse carResponse = new Gson().fromJson(Constant.CAR_JSON, CarResponse.class);
+        if(mList.size()==0){
+            CarResponse carResponse = new Gson().fromJson(Constant.CAR_JSON, CarResponse.class);
 
-        mList.addAll(carResponse.getOrderData());
+            mList.addAll(carResponse.getOrderData());
+        }
 
         storeAdapter = new StoreAdapter(R.layout.item_store, mList, this);
         rvStore.setLayoutManager(new LinearLayoutManager(this));
