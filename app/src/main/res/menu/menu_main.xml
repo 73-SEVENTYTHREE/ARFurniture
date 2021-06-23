@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/gl">
+        <item android:id="@+id/per_info"
+            android:title="个人信息"></item>
+        <item android:id="@+id/shop_plan"
+            android:title="购物计划"></item>
+    </group>
+        <item android:id="@+id/my_order"
+            android:title="我的订单"></item>
+        <item android:id="@+id/reset_pwd"
+            android:title="重置密码"></item>
+
+
+
+</menu>
