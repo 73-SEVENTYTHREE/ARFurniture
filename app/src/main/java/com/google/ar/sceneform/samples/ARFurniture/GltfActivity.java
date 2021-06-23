@@ -1,18 +1,3 @@
-/*
- * Copyright 2018 Google LLC. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.google.ar.sceneform.samples.ARFurniture;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -51,9 +36,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-/**
- * This is an example activity that uses the Sceneform UX package to make common AR tasks easier.
- */
 public class GltfActivity extends AppCompatActivity {
   private static final String TAG = GltfActivity.class.getSimpleName();
   private static final double MIN_OPENGL_VERSION = 3.0;
