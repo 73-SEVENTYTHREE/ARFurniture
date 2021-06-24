@@ -14,7 +14,7 @@ public class GoodInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_good_info);
-        //进入ar展示界面
+        //浸入ar展示界面
         Button arView = (Button) findViewById(R.id.arView);
         arView.setOnClickListener(new View.OnClickListener() {
             @Override
